@@ -129,11 +129,7 @@ function viewAttendance() {
   })
   .then(res => res.json())
   .then(data => {
-    if (data.length === 0) {
-      document.getElementById("output").innerText = "No attendance records found.";
-    } else {
-      document.getElementById("output").innerText = JSON.stringify(data, null, 2);
-    }
+    displayAttendanceTable(data);
   })
   .catch(err => {
     document.getElementById("output").innerText = "Error: " + err.message;
@@ -151,15 +147,37 @@ function viewAllAttendance() {
   })
   .then(res => res.json())
   .then(data => {
-    if (data.length === 0) {
-      document.getElementById("output").innerText = "No attendance records found.";
-    } else {
-      document.getElementById("output").innerText = JSON.stringify(data, null, 2);
-    }
+    displayAttendanceTable(data);
   })
   .catch(err => {
     document.getElementById("output").innerText = "Error: " + err.message;
   });
+}
+
+function displayAttendanceTable(data) {
+  const table = document.getElementById("attendanceTable");
+  const tbody = document.getElementById("attendanceTableBody");
+  const output = document.getElementById("output");
+
+  // Clear previous content
+  tbody.innerHTML = "";
+  output.innerText = "";
+
+  if (data.length === 0) {
+    output.innerText = "No attendance records found.";
+    table.style.display = "none";
+    return;
+  }
+
+  // Populate table
+  data.forEach(record => {
+    const row = tbody.insertRow();
+    row.insertCell(0).innerText = record.studentId;
+    row.insertCell(1).innerText = record.date;
+    row.insertCell(2).innerText = record.status;
+  });
+
+  table.style.display = "table";
 }
 
 function logout() {

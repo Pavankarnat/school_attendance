@@ -42,6 +42,17 @@
       border-radius: 4px;
       overflow-x: auto;
     }
+    table {
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
     hr {
       border: none;
       height: 1px;
@@ -88,6 +99,18 @@
 <h3>View All Attendance</h3>
 <button onclick="viewAllAttendance()">View All Attendance</button>
 </div>
+
+<table id="attendanceTable" style="width:100%; border-collapse: collapse; display: none;">
+  <thead>
+    <tr style="background-color: #f2f2f2;">
+      <th style="border: 1px solid #ddd; padding: 8px;">Student ID</th>
+      <th style="border: 1px solid #ddd; padding: 8px;">Date</th>
+      <th style="border: 1px solid #ddd; padding: 8px;">Status</th>
+    </tr>
+  </thead>
+  <tbody id="attendanceTableBody">
+  </tbody>
+</table>
 
 <pre id="output"></pre>
 
