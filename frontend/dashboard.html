@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    h2 {
+      color: #333;
+      text-align: center;
+    }
+    div {
+      background-color: white;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, select, button {
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    pre {
+      background-color: #f9f9f9;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    hr {
+      border: none;
+      height: 1px;
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Dashboard</h2>
+<p id="welcomeMessage" style="font-size: 18px; color: #333;"></p>
+    <button onclick="logout()" style="position: absolute; bottom: 10px; right: 10px; padding: 10px; background-color: #f44336; color: white; border: none; border-radius: 4px; cursor: pointer;">Logout</button>
+<div id="addStudentSection">
+<h3>Add Student</h3>
+<input id="sid" placeholder="Student ID">
+<input id="sname" placeholder="Student Name">
+<input id="semail" placeholder="Student Email">
+<input id="spassword" placeholder="Password">
+<button onclick="addStudent()">Add Student</button>
+</div>
+
+<hr>
+
+<div id="markAttendanceSection">
+<h3>Mark Attendance</h3>
+<input id="studentId" placeholder="Student ID">
+<select id="status">
+  <option value="present">Present</option>
+  <option value="absent">Absent</option>
+</select>
+<button onclick="markAttendance()">Mark</button>
+</div>
+
+<hr>
+
+<div id="viewAttendanceSection">
+<h3>View Attendance</h3>
+<button onclick="viewAttendance()">View My Attendance</button>
+</div>
+
+<hr>
+
+<div id="viewAllAttendanceSection">
+<h3>View All Attendance</h3>
+<button onclick="viewAllAttendance()">View All Attendance</button>
+</div>
+
+<pre id="output"></pre>
+
+<script src="script.js"></script>
+</body>
+</html>
